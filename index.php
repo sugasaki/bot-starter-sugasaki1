@@ -19,11 +19,15 @@ try {
 }
 
 
+error_log('input:' . $event->getText());
+
 $emoji['office'] = hex2bin("F4808882F48085B7F48FBFBF");
 $emoji['calendar'] = hex2bin("F4809082F48087A7F48FBFBF");
 $emoji['time1'] = hex2bin("F4809482F480878AF48FBFBF");
 $emoji['time2'] = hex2bin("F4809482F4808781F48FBFBF");
-$emoji['kao1'] = mb_convert_encoding(hex2bin("0001F623"), 'UTF-8', 'UTF-32');
+//$emoji['kao1'] = mb_convert_encoding(hex2bin("0001F623"), 'UTF-8', 'UTF-32');
+//$emoji['uzu'] = mb_convert_encoding(hex2bin("0001F300"), 'UTF-8', 'UTF-32');
+
 
 foreach ($events as $event) {
   if (!($event instanceof \LINE\LINEBot\Event\MessageEvent)) {
@@ -35,13 +39,15 @@ foreach ($events as $event) {
     continue;
   }
 
-
-error_log($event->getText());
 error_log($emoji['kao1']);
+//error_log($emoji['uzu']);
+//error_log($emoji['time2']);
+
+
 
 
 //  $message = "ありゃりゃ(happy)" . $event->getText();
- $message = "ありゃりゃ" . $emoji['kao1'] . $emoji['time2'];
+// $message = "ありゃりゃ" . $emoji['kao1'] . $emoji['time2']. $emoji['uzu'];
    //$emoji = hex2bin( "F4809082F48087B3626F6F6BF48FBFBFF4809082F48087AD72756C6572F48FBFBFF4809082F48087B567696674F48FBFBF");
 
   $bot->replyText($event->getReplyToken(), $message);
