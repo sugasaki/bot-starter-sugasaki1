@@ -23,7 +23,7 @@ $emoji['office'] = hex2bin("F4808882F48085B7F48FBFBF");
 $emoji['calendar'] = hex2bin("F4809082F48087A7F48FBFBF");
 $emoji['time1'] = hex2bin("F4809482F480878AF48FBFBF");
 $emoji['time2'] = hex2bin("F4809482F4808781F48FBFBF");
-$emoji['kao1'] = mb_convert_encoding( hex2bin( "1F623"), 'UTF-8', 'UTF-32');
+$emoji['kao1'] = mb_convert_encoding(hex2bin("1F623"), 'UTF-8', 'UTF-32');
 
 foreach ($events as $event) {
   if (!($event instanceof \LINE\LINEBot\Event\MessageEvent)) {
@@ -42,4 +42,4 @@ foreach ($events as $event) {
   $bot->replyText($event->getReplyToken(), $message);
 }
 
- ?>
+?>
