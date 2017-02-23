@@ -35,6 +35,10 @@ foreach ($events as $event) {
     continue;
   }
 
+
+error_log($event->getText());
+
+
 //  $message = "ありゃりゃ(happy)" . $event->getText();
  $message = "ありゃりゃ" . $emoji['kao1'];
    //$emoji = hex2bin( "F4809082F48087B3626F6F6BF48FBFBFF4809082F48087AD72756C6572F48FBFBFF4809082F48087B567696674F48FBFBF");
