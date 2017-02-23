@@ -19,7 +19,6 @@ try {
 }
 
 
-error_log('input:' . $event->getText());
 
 $emoji['office'] = hex2bin("F4808882F48085B7F48FBFBF");
 $emoji['calendar'] = hex2bin("F4809082F48087A7F48FBFBF");
@@ -38,6 +37,8 @@ foreach ($events as $event) {
     error_log('Non text message has come');
     continue;
   }
+
+error_log('input:' . $event->getText());
 
 error_log($emoji['kao1']);
 //error_log($emoji['uzu']);
