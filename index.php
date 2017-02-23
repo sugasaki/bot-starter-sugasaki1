@@ -18,6 +18,13 @@ try {
   error_log("parseEventRequest failed. InvalidEventRequestException => ".var_export($e, true));
 }
 
+
+$emoji['office'] = hex2bin("F4808882F48085B7F48FBFBF");
+$emoji['calendar'] = hex2bin("F4809082F48087A7F48FBFBF");
+$emoji['time1'] = hex2bin("F4809482F480878AF48FBFBF");
+$emoji['time2'] = hex2bin("F4809482F4808781F48FBFBF");
+
+
 foreach ($events as $event) {
   if (!($event instanceof \LINE\LINEBot\Event\MessageEvent)) {
     error_log('Non message event has come');
@@ -27,7 +34,11 @@ foreach ($events as $event) {
     error_log('Non text message has come');
     continue;
   }
-  $bot->replyText($event->getReplyToken(), "ありゃりゃ(happy)" . $event->getText());
+
+//  $message = "ありゃりゃ(happy)" . $event->getText();
+  $message = "ありゃりゃ" . $emoji['calendar'];
+
+  $bot->replyText($event->getReplyToken(), );
 }
 
  ?>
