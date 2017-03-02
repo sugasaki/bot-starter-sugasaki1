@@ -42,7 +42,8 @@ foreach ($events as $event) {
     $message = 'ありゃりゃ' . $event->getText();
   }
 
-  if (($event instanceof \LINE\LINEBot\Event\MessageEvent\BeaconDetecBeaconDetectionEventtionEvent)) {
+  if (($event instanceof \LINE\LINEBot\Event\MessageEvent\BeaconDetectionEvent)) {
+    //$reply_token = $event->getReplyToken();
     $message = '近くにいますよ・・・' . $event->getText();
   }
 
