@@ -29,14 +29,14 @@ $emoji['time2'] = hex2bin("F4809482F4808781F48FBFBF");
 
 
 foreach ($events as $event) {
-//  if (!($event instanceof \LINE\LINEBot\Event\MessageEvent)) {
-//    error_log('Non message event has come');
-//    continue;
-//  }
-//  if (!($event instanceof \LINE\LINEBot\Event\MessageEvent\TextMessage)) {
-//    error_log('Non text message has come');
-//    continue;
-//  }
+  if (!($event instanceof \LINE\LINEBot\Event\MessageEvent)) {
+    error_log('Non message event has come');
+    continue;
+  }
+  if (!($event instanceof \LINE\LINEBot\Event\MessageEvent\TextMessage)) {
+    error_log('Non text message has come');
+    continue;/  
+  }
 
   if (($event instanceof \LINE\LINEBot\Event\MessageEvent\MessageEvent)) {
     $message = 'ありゃりゃ' . $event->getText();
@@ -52,8 +52,6 @@ error_log('input:' . $event->getText());
 error_log($emoji['kao1']);
 //error_log($emoji['uzu']);
 //error_log($emoji['time2']);
-
-
 
 
 //  $message = "ありゃりゃ(happy)" . $event->getText();
