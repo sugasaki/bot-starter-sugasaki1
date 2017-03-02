@@ -38,6 +38,14 @@ foreach ($events as $event) {
     continue;
   }
 
+  if (($event instanceof \LINE\LINEBot\Event\MessageEvent\MessageEvent)) {
+    $message = 'ありゃりゃ' . $event->getText();
+  }
+
+  if (($event instanceof \LINE\LINEBot\Event\MessageEvent\BeaconDetecBeaconDetectionEventtionEvent)) {
+    $message = '近くにいますよ・・・' . $event->getText();
+  }
+
 error_log('input:' . $event->getText());
 
 error_log($emoji['kao1']);
@@ -47,9 +55,11 @@ error_log($emoji['kao1']);
 
 
 
-  $message = "ありゃりゃ(happy)" . $event->getText();
+//  $message = "ありゃりゃ(happy)" . $event->getText();
 // $message = "ありゃりゃ" . $emoji['kao1'] . $emoji['time2']. $emoji['uzu'];
    //$emoji = hex2bin( "F4809082F48087B3626F6F6BF48FBFBFF4809082F48087AD72756C6572F48FBFBFF4809082F48087B567696674F48FBFBF");
+//$message = '近くにいますよ・・・' . $event->getText();
+
 
   $bot->replyText($event->getReplyToken(), $message);
 }
