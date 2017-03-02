@@ -35,7 +35,7 @@ foreach ($events as $event) {
   }
   if (!($event instanceof \LINE\LINEBot\Event\MessageEvent\TextMessage)) {
     error_log('Non text message has come');
-    continue;/  
+    continue;
   }
 
   if (($event instanceof \LINE\LINEBot\Event\MessageEvent\MessageEvent)) {
