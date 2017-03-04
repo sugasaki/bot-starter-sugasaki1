@@ -44,13 +44,14 @@ foreach ($events as $event) {
     if ($event instanceof \LINE\LINEBot\Event\MessageEvent\TextMessage) {
         $reply_token = $event->getReplyToken();
         $message = $event->getText();
+        error_log('input:' . $message);
         $bot->replyText($reply_token, $text);
     } elseif ($event instanceof \LINE\LINEBot\Event\BeaconDetectionEvent) {
         $message = $event->getReplyToken();
     }
 
 
-  error_log('input:' . $event->getText());
+
 
   //error_log($emoji['kao1']);
   //error_log($emoji['uzu']);
