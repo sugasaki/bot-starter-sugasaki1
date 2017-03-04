@@ -42,12 +42,11 @@ foreach ($events as $event) {
 //    $message = 'ありゃりゃ' . $event->getText();
 //  }
     if ($event instanceof \LINE\LINEBot\Event\MessageEvent\TextMessage) {
-        $reply_token = $event->getReplyToken();
         $message = $event->getText();
         error_log('input:' . $message);
-        $bot->replyText($reply_token, $text);
     } elseif ($event instanceof \LINE\LINEBot\Event\BeaconDetectionEvent) {
-        $message = $event->getReplyToken();
+        $message = "近くにいますね？";
+        error_log('input:' . 'ビーコン検知');
     }
 
 
