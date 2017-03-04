@@ -29,35 +29,38 @@ $emoji['time2'] = hex2bin("F4809482F4808781F48FBFBF");
 
 
 foreach ($events as $event) {
-  if (!($event instanceof \LINE\LINEBot\Event\MessageEvent)) {
-    error_log('Non message event has come');
-    continue;
-  }
-  if (!($event instanceof \LINE\LINEBot\Event\MessageEvent\TextMessage)) {
-    error_log('Non text message has come');
-    continue;
-  }
+//  if (!($event instanceof \LINE\LINEBot\Event\MessageEvent)) {
+//    error_log('Non message event has come');
+//    continue;
+  
+ // if (!($event instanceof \LINE\LINEBot\Event\MessageEvent\TextMessage)) {
+ //   error_log('Non text message has come');
+ //   continue;
+ // }
 
-  if (($event instanceof \LINE\LINEBot\Event\MessageEvent\MessageEvent)) {
-    $message = 'ありゃりゃ' . $event->getText();
-  }
-
-  if (($event instanceof \LINE\LINEBot\Event\MessageEvent\BeaconDetectionEvent)) {
-    //$reply_token = $event->getReplyToken();
-    $message = '近くにいますよ・・・' . $event->getText();
-  }
-
-error_log('input:' . $event->getText());
-
-error_log($emoji['kao1']);
-//error_log($emoji['uzu']);
-//error_log($emoji['time2']);
+//  if (($event instanceof \LINE\LINEBot\Event\MessageEvent\MessageEvent)) {
+//    $message = 'ありゃりゃ' . $event->getText();
+//  }
+    if ($event instanceof \LINE\LINEBot\Event\MessageEvent\TextMessage) {
+        $reply_token = $event->getReplyToken();
+        $message = $event->getText();
+        $bot->replyText($reply_token, $text);
+    } elseif ($event instanceof \LINE\LINEBot\Event\BeaconDetectionEvent) {
+        $message = $event->getReplyToken();
+    }
 
 
-//  $message = "ありゃりゃ(happy)" . $event->getText();
-// $message = "ありゃりゃ" . $emoji['kao1'] . $emoji['time2']. $emoji['uzu'];
-   //$emoji = hex2bin( "F4809082F48087B3626F6F6BF48FBFBFF4809082F48087AD72756C6572F48FBFBFF4809082F48087B567696674F48FBFBF");
-//$message = '近くにいますよ・・・' . $event->getText();
+  error_log('input:' . $event->getText());
+
+  //error_log($emoji['kao1']);
+  //error_log($emoji['uzu']);
+  //error_log($emoji['time2']);
+
+
+  //  $message = "ありゃりゃ(happy)" . $event->getText();
+  // $message = "ありゃりゃ" . $emoji['kao1'] . $emoji['time2']. $emoji['uzu'];
+    //$emoji = hex2bin( "F4809082F48087B3626F6F6BF48FBFBFF4809082F48087AD72756C6572F48FBFBFF4809082F48087B567696674F48FBFBF");
+  //$message = '近くにいますよ・・・' . $event->getText();
 
 
   $bot->replyText($event->getReplyToken(), $message);
