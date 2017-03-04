@@ -45,7 +45,8 @@ foreach ($events as $event) {
         $message = $event->getText();
         error_log('input:' . $message);
     } elseif ($event instanceof \LINE\LINEBot\Event\BeaconDetectionEvent) {
-        $message = "近くにいますね？";
+        $hdid = $event->getHwid();
+        $message = "近くにいますね？" . $hdid;
         error_log('input:' . 'ビーコン検知');
     }
 
